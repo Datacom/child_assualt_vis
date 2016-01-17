@@ -1,5 +1,6 @@
 <html>
   <head>
+    <title>Assaults on children</title>
     <link href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css' rel="stylesheet" type="text/css"/>
     <link href='css/dc.css' rel="stylesheet" type="text/css"/>
 
@@ -21,7 +22,7 @@
         <div class="col-sm-12">
           <legend>
           Assaults on children and young people
-            <a class="pull-right reset btn btn-primary" href="javascript:dc.filterAll()">Reset All</a>
+            <a class="pull-right reset btn btn-primary" href="javascript:dc.filterAll();dc.redrawAll()">Reset All</a>
           </legend>
           <p>Data sourced from the <a href="">NZ.Stat</a>. Care must be taken with the use and interpretation of the data used as some of the totals are very small and have been randomly rounded using a base of three in order to protect the identity of the individuals represented here. As six values have been aggregated and each value could differ from the underlying data by +/- 2, the result could be out by up to 12. For further information about random rounding see <a href = 'http://www.stats.govt.nz/about_us/who-we-are/policies-and-protocols/confidentiality-of-info-supplied-to-snz/safeguarding-confidentiality.aspx'> Statistics New Zealand, Safeguarding confidentiality</a>.</p>
         </div>
@@ -36,18 +37,30 @@
             </div>
           </div>  
           <div class="row">
-        
-            <div class="col-sm-4" id="tree">
-             <legend><a href='javascript:age_chart.filterAll(); dc.redrawAll()' class='pull-right reset' style='display:none;'><i class="fa fa-refresh"> </i> </a></legend>
-            </div> 
-
-            <div class="col-sm-4" id="offence">
-              <legend><a href='javascript:offence_chart.filterAll(); dc.redrawAll()' class='pull-right reset' style='display:none;'><i class="fa fa-refresh"> </i> </a></legend>
+            <div class='col-sm-6'>
+              <div class='row'>
+                <div class="col-sm-12" id="tree">
+                 <legend><a href='javascript:age_chart.filterAll(); dc.redrawAll()' class='pull-right reset' style='display:none;'><i class="fa fa-refresh"> </i> </a></legend>
+                </div> 
+              </div>
+              <div class='row'>
+                <div class="col-sm-12" id="offence">
+                  <legend><a href='javascript:offence_chart.filterAll(); dc.redrawAll()' class='pull-right reset' style='display:none;'><i class="fa fa-refresh"> </i> </a></legend>
+                </div>
+              
+              </div>
             </div>
+            <div class='col-sm-6'>
+              <div class='row'>
+                <div class="col-sm-12" id="ethnicity">
+                  <legend><a href='javascript:ethnicity_chart.filterAll(); dc.redrawAll()' class='pull-right reset' style='display:none;'><i class="fa fa-refresh"> </i> </a></legend>
+                </div>  
+              
+              </div>
+            </div>
+        
 
-            <div class="col-sm-4" id="ethnicity">
-              <legend><a href='javascript:ethnicity_chart.filterAll(); dc.redrawAll()' class='pull-right reset' style='display:none;'><i class="fa fa-refresh"> </i> </a></legend>
-            </div>  
+
             
           </div>
         </div>

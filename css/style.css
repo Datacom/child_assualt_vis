@@ -172,3 +172,38 @@
 .columnLabel{
   font-weight: bold;
 }
+
+
+.dc-chart rect.bar:hover {
+    fill-opacity: .5;
+}
+
+.dc-chart .row rect.selected {
+    fill: #f83a17
+}
+
+.dc-chart rect.bar.filtered {
+    fill: #f83a17
+}
+
+.dc-chart rect.bar.filtered.deselected {
+    fill: #ccc
+}
+
+.dc-chart g.tick line.grid-line.centre {
+  stroke:white; 
+}
+
+.dc-chart g.row rect.left {
+  stroke:#ccc;
+  stroke-width:1px;
+  shape-rendering: crispEdges;
+}
+
+.dc-chart g.row rect.right {
+  stroke:#ccc;
+  stroke-width:1px;
+  shape-rendering: crispEdges;
+}
+
+

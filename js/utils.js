@@ -24,7 +24,9 @@ projection = d3.geo.mercator()
 //"#D3715C"]
 
 //var our_colors = ["#DCEFEC","#152E62","#117211","#840A0A","#14666B"]
-var our_colors = ["#9df5e7","#b2bfdb","#a1eda1","#fc9898","#afedf0"]
+//var our_colors = ["#9df5e7","#b2bfdb","#a1eda1","#fc9898","#afedf0"]
+//var our_colors = ["#6e8a91","#6e8a91","#6e8a91"]
+var our_colors = ["#85a5ad","#85a5ad","#85a5ad"]
 
 var default_colors = d3.scale.ordinal().range(our_colors) 
 
@@ -242,6 +244,10 @@ grey_undefined = function(chart) {
 
 grey_zero = function(chart) {
   chart.selectAll("text.row").classed("grey",function(d) {return d.value == 0})
+}
+
+function filter_aware(chart, filter) {
+  chart.selectAll('rect.bar').classed('filtered', filter);
 }
 
 //-----------------------------save stuff ------------------

@@ -110,7 +110,7 @@ function showCharts(err, data, title_text) {
     .elasticX(false)
     .elasticY(true)
     .centerBar(true)
-   
+    .on('filtered', filter_aware)
   
   
   format = function(d){ y = Math.floor(d)
@@ -129,8 +129,8 @@ function showCharts(err, data, title_text) {
     .group(age_group)
     .data(function(d){return _.filter(d.all(), function(d){return d.key.length < 15})})
     .valueAccessor(valueAccessor)
-    .colors(d3.scale.ordinal().range([our_colors[1],our_colors[3]]))
-    .colorAccessor(function(d){return d.key[0]})
+    .colors(default_colors)
+    //.colorAccessor(function(d){return d.key[0]})
     .leftColumn(function(d){return d.key[0] == 'M'}) // return true if entry is to go in the left column. Defaults to i%2 == 0, i.e. every second one goes to the right.
    .rowAccessor(function(d){return +d.key.split(' ')[1].split('-')[0]}) // return the row the group needs to go into.
     .height(small_chart_height)
@@ -141,7 +141,14 @@ function showCharts(err, data, title_text) {
     .twoLabels(false)// defaults to true. if false, .label defaults to .rowAccessor
     .columnLabels(['Male','Female'])
     .columnLabelPosition([0,125]) //[in,down], in pix. defaults to [5,10]
-    .transitionDuration(200)
+    .transitionDuration(200);
+  
+    age_chart.on('postRender',function(chart) {
+      chart.selectAll('g.row rect').classed({
+        left: age_chart.leftColumn(),
+        right: !age_chart.leftColumn()
+      })
+    })
   
     age_chart.xAxis().ticks(7).tickFormat(function(x) {return integer_format(Math.abs(x))})
     
@@ -168,7 +175,7 @@ function showCharts(err, data, title_text) {
     .group(ethnicity_group)
     .valueAccessor(valueAccessor)
     .transitionDuration(200)
-    .height(small_chart_height)
+    .height(small_chart_height * 2 + 43)
     .colors(default_colors)
     .elasticX('true')
     .ordering(function(d){return -d.value})
