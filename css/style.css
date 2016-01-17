@@ -206,4 +206,6 @@
   shape-rendering: crispEdges;
 }
 
-
+.dc-chart g.resize path {
+  visibility:hidden;
+}
